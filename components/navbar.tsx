@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
-import { Menu, X, Compass } from "lucide-react";
+import { Menu, X, Compass, Plane } from "lucide-react";
 import { SCENE_SCROLL_VH } from "@/lib/sceneConfig";
 
 const links = [
@@ -71,14 +71,20 @@ export default function Navbar() {
             open ? modeClass.hero : modeClass[mode]
           }`}
         >
-          <Link href="/" className="flex items-center gap-2 pl-1 text-lg font-bold tracking-tight">
+          <Link
+            href="/"
+            className="flex items-center gap-2 pl-1 text-lg font-bold tracking-tight"
+          >
             <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-amber-300 to-orange-500 text-slate-900">
-              <Compass className="h-4 w-4" />
+              <Plane />
             </span>
             Wanderly
           </Link>
 
-          <ul className="hidden items-center md:flex" onMouseLeave={() => setHovered(null)}>
+          <ul
+            className="hidden items-center md:flex"
+            onMouseLeave={() => setHovered(null)}
+          >
             {links.map((l) => {
               const active = l.href === pathname;
               return (
@@ -96,7 +102,11 @@ export default function Navbar() {
                   {hovered === l.href && (
                     <motion.span
                       layoutId="nav-pill"
-                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 32,
+                      }}
                       className={`absolute inset-0 rounded-full ${light ? "bg-white/15" : "bg-slate-900/5"}`}
                     />
                   )}
