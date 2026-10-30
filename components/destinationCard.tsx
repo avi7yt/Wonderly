@@ -13,7 +13,7 @@ export default function DestinationCard({ d }: { d: Destination }) {
   return (
     <Link
       href={`/destinations/${d.slug}`}
-      className="group overflow-hidden rounded-2xl bg-white shadow-md transition hover:shadow-xl"
+      className="group overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-slate-100 transition hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="relative h-56 overflow-hidden">
         <Image
@@ -27,7 +27,7 @@ export default function DestinationCard({ d }: { d: Destination }) {
       <div className="p-4">
         <h3 className="text-lg font-semibold">{d.name}</h3>
         <p className="text-sm text-slate-500">{d.country}</p>
-        <p className="mt-3 font-bold text-sky-600">From ${d.price}</p>
+        <p className="mt-3 font-bold text-orange-600">From ${d.price}</p>
       </div>
     </Link>
   );
